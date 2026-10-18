@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotiMoa - プライバシーポリシー</title>
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-light: #E0F2FE;
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --bg-body: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .header-title p {
+            margin: 4px 0 0 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 28px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p, li {
+            font-size: 14.5px;
+            color: var(--text-muted);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #0369A1;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: #94A3B8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-title">
+            <h1>NotiMoa プライバシーポリシー</h1>
+            <p>パッケージ名: app.noti.moa | 施行日: 2026年11月1日</p>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        🔒 NotiMoaはインターネット権限（INTERNET Permission）を使用しません。すべての通知データはユーザーのスマートフォン内の暗号化DBにのみ保存され、外部サーバーへ送信されることは一切ありません。
+    </div>
+
+    <h2>1. 個人情報の処理目的</h2>
+    <p>NotiMoa（以下「本アプリ」）は、ユーザーが受信した通知履歴をローカルデバイスに保存し、検索、統計分析、通知ブロック管理など、通知履歴を効率的に管理できる機能を提供することのみを目的として個人情報を処理します。</p>
+
+    <h2>2. 処理する個人情報項目および保存方法</h2>
+    <p>本アプリは、通知アクセス権限（NotificationListenerService）を通じて以下の情報を収集します：</p>
+    <ul>
+        <li><strong>収集項目</strong>: アプリ名、パッケージ名、通知件名、通知本文内容、拡張テキスト、受信日時、添付画像ファイル</li>
+        <li><strong>保存場所および方法</strong>: スマートフォン内部専用ストレージ（Internal Private Storage）に<strong>SQLCipher(AES-256)</strong>および<strong>AES-256-GCM</strong>技術で完全に暗号化して保存されます。</li>
+    </ul>
+
+    <h2>3. 個人情報の第三者提供および外部送信の禁止</h2>
+    <p>本アプリは、ユーザーの個人情報を外部に提供または送信することはありません。</p>
+    <ul>
+        <li>本アプリはインターネット通信権限（<code>android.permission.INTERNET</code>）を宣言または使用しないため、外部サーバーとの通信は完全に遮断されています。</li>
+        <li>第三者の分析スクリプトや広告SDKなどは一切含まれていません。</li>
+    </ul>
+
+    <h2>4. 個人情報の安全確保措置</h2>
+    <p>本アプリは、個人情報の安全性を確保するために以下の強力なセキュリティ措置を適用しています：</p>
+    <ul>
+        <li><strong>データベース暗号化</strong>: Room SQLite DB全体をSQLCipher（AES-256）アルゴリズムで暗号化処理しています。</li>
+        <li><strong>添付メディア暗号化</strong>: 保存される通知画像ファイルはAES-256-GCMアルゴリズムで暗号化されます。</li>
+        <li><strong>ハードウェアキーセキュリティ</strong>: 暗号化に使用されるマスターキーはAndroid KeyStoreハードウェアセキュリティ領域で保護されます。</li>
+        <li><strong>クラウドバックアップ防止</strong>: <code>allowBackup="false"</code>設定により、データがGoogleドライブや外部ADBバックアップを通じて抽出されるのを防ぎます。</li>
+        <li><strong>画面キャプチャブロック</strong>: プレビュー画面やスクリーンショットのブロック機能（FLAG_SECURE）をオプションで提供します。</li>
+    </ul>
+
+    <h2>5. 個人情報の破棄およびユーザーの権利</h2>
+    <p>ユーザーはご自身の個人情報をいつでも直接管理および破棄できます：</p>
+    <ul>
+        <li><strong>アプリ内での直接削除</strong>: メイン画面の「削除」または「画像のみ削除」機能を利用して、保存された通知データを即時に破棄できます。</li>
+        <li><strong>自動削除設定</strong>: 「設定 > 保存期間」機能を通じて、一定期間が経過した通知を自動的に破棄するように設定できます。</li>
+        <li><strong>アプリ削除時の破棄</strong>: アプリをアンインストールした場合、端末内部のPrivateストレージに暗号化保存されたすべてのデータがシステムによって完全に削除されます。</li>
+    </ul>
+
+    <h2>6. 特殊権限の使用案内</h2>
+    <ul>
+        <li><strong>通知へのアクセス権限 (BIND_NOTIFICATION_LISTENER_SERVICE)</strong>: 受信した通知を収集し、ローカルに記録するために使用されます。</li>
+        <li><strong>バッテリー最適化の除外 (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)</strong>: バックグラウンドの通知収集サービスがシステム省電力機能によって停止するのを防ぐために使用されます。</li>
+    </ul>
+
+    <h2>7. お問い合わせ</h2>
+    <p>プライバシーポリシーに関するお問い合わせは、以下の連絡先までご連絡ください。</p>
+    <ul>
+        <li><strong>開発者</strong>: Peterzzang</li>
+        <li><strong>メールお問い合わせ</strong>: <a href="mailto:peterzzang@gmail.com" style="color: var(--primary);">peterzzang@gmail.com</a></li>
+    </ul>
+
+    <div class="footer">
+        &copy; 2026 NotiMoa. All rights reserved.
+    </div>
+</div>
+</body>
+</html>

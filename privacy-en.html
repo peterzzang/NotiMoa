@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotiMoa - Privacy Policy</title>
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-light: #E0F2FE;
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --bg-body: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --border-color: #E2E8F0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+        }
+
+        .header-title h1 {
+            margin: 0;
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        .header-title p {
+            margin: 4px 0 0 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 28px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p, li {
+            font-size: 14.5px;
+            color: var(--text-muted);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 6px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #0369A1;
+            font-weight: 500;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: #94A3B8;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header-title">
+            <h1>NotiMoa - Privacy Policy</h1>
+            <p>Package Name: app.noti.moa | Effective Date: November 1, 2026</p>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        🔒 NotiMoa does not use INTERNET permission. All notification data is stored solely in the encrypted database on your local device and is never transmitted to external servers.
+    </div>
+
+    <h2>1. Purpose of Processing Personal Data</h2>
+    <p>NotiMoa (hereinafter referred to as "the App") processes data solely to store, search, analyze statistics, and manage blocked applications for incoming notifications locally on your device, enabling you to manage notification logs efficiently.</p>
+
+    <h2>2. Collected Data & Storage Method</h2>
+    <p>The App collects the following notification items via Notification Access Permission (NotificationListenerService):</p>
+    <ul>
+        <li><strong>Collected Items</strong>: App Name, Package Name, Notification Title, Notification Text Body, Subtext/BigText, Timestamp, Attached Photo Files.</li>
+        <li><strong>Storage Location & Method</strong>: Stored exclusively inside the App's Internal Private Storage, fully encrypted using <strong>SQLCipher (AES-256)</strong> and <strong>AES-256-GCM</strong>.</li>
+    </ul>
+
+    <h2>3. Zero Third-Party Sharing & Prohibition of Network Transmission</h2>
+    <p>The App does not share or transmit your personal data to any external parties.</p>
+    <ul>
+        <li>The App does not declare or use the Internet permission (<code>android.permission.INTERNET</code>), ensuring network communication is completely blocked at the OS level.</li>
+        <li>No third-party analytics scripts, tracking tools, or advertisement SDKs are included.</li>
+    </ul>
+
+    <h2>4. Security & Safety Measures</h2>
+    <p>The App implements robust security mechanisms to protect your data:</p>
+    <ul>
+        <li><strong>Database Encryption</strong>: The entire Room SQLite database is encrypted with SQLCipher (AES-256).</li>
+        <li><strong>Media Encryption</strong>: Stored notification photos are encrypted using AES-256-GCM.</li>
+        <li><strong>Hardware Key Protection</strong>: Encryption master keys are protected within the Android KeyStore hardware security area.</li>
+        <li><strong>Cloud Backup Prevention</strong>: <code>allowBackup="false"</code> prevents data extraction via Google Drive cloud backup or ADB backup.</li>
+        <li><strong>Screen Capture Protection</strong>: Optional <code>FLAG_SECURE</code> mode prevents screenshots, screen recording, and recent apps preview.</li>
+    </ul>
+
+    <h2>5. Data Deletion & User Rights</h2>
+    <p>Users have full control to manage and destroy their data at any time:</p>
+    <ul>
+        <li><strong>In-App Deletion</strong>: Instantly delete stored notification logs or photos using the 'Delete' buttons.</li>
+        <li><strong>Auto-Delete Policy</strong>: Configure 'Settings > Retention Period' to automatically purge old notification logs.</li>
+        <li><strong>Uninstall Cleanup</strong>: Uninstalling the App permanently deletes all encrypted local data.</li>
+    </ul>
+
+    <h2>6. Special Permissions Usage</h2>
+    <ul>
+        <li><strong>Notification Access (BIND_NOTIFICATION_LISTENER_SERVICE)</strong>: Used to capture and log incoming notifications locally.</li>
+        <li><strong>Battery Optimization Exception (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS)</strong>: Used to prevent the background capture service from being killed by OS power saving features.</li>
+    </ul>
+
+    <h2>7. Contact Information</h2>
+    <p>If you have any questions regarding this Privacy Policy, please contact us below:</p>
+    <ul>
+        <li><strong>Developer</strong>: Peterzzang</li>
+        <li><strong>Email Contact</strong>: <a href="mailto:peterzzang@gmail.com" style="color: var(--primary);">peterzzang@gmail.com</a></li>
+    </ul>
+
+    <div class="footer">
+        &copy; 2026 NotiMoa. All rights reserved.
+    </div>
+</div>
+</body>
+</html>
